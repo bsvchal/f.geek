@@ -1,0 +1,81 @@
+﻿@page
+@model fgk.UI.Pages.SearchModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/search-styles.css" />
+</head>
+
+<body>
+    <div class="Header">
+        <div class="FGeek">f.geek</div>
+        @if (Model.Username is null)
+        {
+            <div class="LogIn">
+                <a class="LogInRef" href="/login" target="_self">Log In</a>
+            </div>
+        }
+        else
+        {
+            <div class="HeaderProfile">
+                <a class="HeaderProfileRef" href="/profile" target="_self">@Model.Username</a>
+            </div>
+        }
+    </div>
+
+    <div class="LeftBorder">
+        <div class="Profile">
+            <a class="ProfileRef" href="/profile" target="_self">Profile</a>
+        </div>
+        <div class="Home">
+            <a class="HomeRef" href="/" target="_self">Home</a>
+        </div>
+        <div class="Search">
+            <a class="SearchRef" href="/search" target="_self">Search</a>
+        </div>
+        <div class="Likes">
+            <a class="LikesRef" href="/likes" target="_self">Likes</a>
+        </div>
+        <div class="Movies">
+            <a class="MoviesRef" href="/movies" target="_self">Movies</a>
+        </div>
+        <div class="Series">
+            <a class="SeriesRef" href="/series" target="_self">Series</a>
+        </div>
+    </div>
+
+    <div class="MainContent">
+        <form class="SearchForm" method="get">
+            <input class="SearchRequest"
+                   id="searchRequest"
+                   type="text"
+                   placeholder="Search movies, series, profiles..."
+                   name="q" />
+
+            <input class="SearchButton"
+                   id="searchButton"
+                   type="submit"
+                   value="Search" />
+        </form>
+
+        <div class="SearchResults">
+            <ul>
+                @foreach (var item in Model.SearchingResult)
+                {
+                    <li class="SearchItem" onclick="location.href='/movie?name=@item!.TitleQuery()';" style="cursor:pointer;">
+                        <img class="ItemPoster" src=@item!.PosterURL />
+                        <div class="ItemTitle">@item!.Title</div>
+                        <div class="ItemInfo">@item!.Runtime min, @item!.LikesAmount like(s)</div>
+                        <div class="ItemDescription">@item!.ShortDescription</div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

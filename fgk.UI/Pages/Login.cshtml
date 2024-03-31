@@ -1,0 +1,88 @@
+﻿@page
+@model fgk.UI.Pages.LoginModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Authorization</title>
+    <link rel="stylesheet" href="~/css/login-styles.css" />
+
+</head>
+
+<body>
+    <div class="Header">
+        <div class="FGeek">f.geek</div>
+    </div>
+
+    <div class="Main" id="main">
+        <form class="Registration" id="registration" method="post">
+            <div class="RegistrationFrame"></div>
+            <div class="RegistrationText">Create f.geek Account</div>
+
+            <input class="Email"
+                   id="registrationEmail"
+                   type="email"
+                   placeholder="E-Mail"
+                   name="registrationEmail" />
+            <input class="Username"
+                   id="registrationUsername"
+                   type="text"
+                   placeholder="Username"
+                   name="registrationUsername" />
+            <input class="Password"
+                   id="registrationPassword"
+                   type="password"
+                   placeholder="Password"
+                   name="registrationPassword" />
+            <div class="RegistrationErrorMessage"
+                 id="registrationErrorMessage">
+                @Model.RegistrationErrorMessage
+            </div>
+            <input class="Submit"
+                   id="registrationSubmit"
+                   type="submit"
+                   value="Create" />
+        </form>
+
+        <form class="Authorization" id="authorization" method="post">
+            <div class="AuthorizationFrame"></div>
+            <div class="AuthorizationText">Sign In Your Account</div>
+
+            <input class="Email"
+                   id="authorizationEmail"
+                   type="email"
+                   placeholder="E-Mail"
+                   name="authorizationEmail" />
+            <input class="Password"
+                   id="authorizationPassword"
+                   type="password"
+                   placeholder="Password"
+                   name="authorizationPassword" />
+            <div class="AuthorizationErrorMessage"
+                 id="authorizationErrorMessage">
+                @Model.AuthorizationErrorMessage
+            </div>
+            <input class="Submit"
+                   id="authorizationSubmit"
+                   type="submit"
+                   value="Sign In" />
+        </form>
+
+        <div class="Switch">
+            <input class="SignIn" id="switchButton" type="button" value="Already have account?
+Sign in" />
+        </div>
+
+        <div class="Title">
+            <div class="BackgroundTitleFrame">
+                <div class="BackgroundTitle" id="BackgroundTitle">Pulp Fiction, 1994</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/login.js"></script>
+</body>
+</html>

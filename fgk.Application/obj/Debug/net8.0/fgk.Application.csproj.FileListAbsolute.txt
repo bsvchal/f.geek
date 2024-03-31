@@ -1,0 +1,17 @@
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\bin\Debug\net8.0\fgk.Application.deps.json
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\bin\Debug\net8.0\fgk.Application.dll
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\bin\Debug\net8.0\fgk.Application.pdb
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\obj\Debug\net8.0\fgk.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\obj\Debug\net8.0\fgk.Application.AssemblyInfoInputs.cache
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\obj\Debug\net8.0\fgk.Application.AssemblyInfo.cs
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\obj\Debug\net8.0\fgk.Application.csproj.CoreCompileInputs.cache
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\obj\Debug\net8.0\fgk.Application.dll
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\obj\Debug\net8.0\refint\fgk.Application.dll
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\obj\Debug\net8.0\fgk.Application.pdb
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\obj\Debug\net8.0\ref\fgk.Application.dll
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\bin\Debug\net8.0\fgk.Core.dll
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\bin\Debug\net8.0\fgk.Persistence.dll
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\bin\Debug\net8.0\fgk.Core.pdb
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\bin\Debug\net8.0\fgk.Persistence.pdb
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\obj\Debug\net8.0\fgk.Application.csproj.AssemblyReference.cache
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\obj\Debug\net8.0\fgk.Appl.4BE6ACB4.Up2Date

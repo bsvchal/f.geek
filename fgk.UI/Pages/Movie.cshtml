@@ -1,0 +1,154 @@
+﻿@page
+@model fgk.UI.Pages.MovieModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/movies-styles.css" />
+</head>
+
+<body>
+    <div class="Header">
+        <div class="FGeek">f.geek</div>
+        @if (Model.Account is null)
+        {
+            <div class="LogIn">
+                <a class="LogInRef" href="/login" target="_self">Log In</a>
+            </div>
+        }
+        else
+        {
+            <div class="HeaderProfile">
+                <a class="HeaderProfileRef" href="/profile" target="_self">@Model.Account?.Username</a>
+            </div>
+        }
+    </div>
+
+    <div class="LeftBorder">
+        <div class="Profile">
+            <a class="ProfileRef" href="/profile" target="_self">Profile</a>
+        </div>
+        <div class="Home">
+            <a class="HomeRef" href="/" target="_self">Home</a>
+        </div>
+        <div class="Search">
+            <a class="SearchRef" href="/search" target="_self">Search</a>
+        </div>
+        <div class="Likes">
+            <a class="LikesRef" href="/likes" target="_self">Likes</a>
+        </div>
+        <div class="Movies">
+            <a class="MoviesRef" href="/movies" target="_self">Movies</a>
+        </div>
+        <div class="Series">
+            <a class="SeriesRef" href="/series" target="_self">Series</a>
+        </div>
+    </div>
+    @if (Model.Movie is not null)
+    {
+        <div class="MainContent">
+            <img class="MoviePoster" src=@Model.Movie!.PosterURL />
+            <div class="MovieTitle">@Model.Movie!.Title</div>
+            <form class="LikeForm" method="post">
+                <button class="LikeButtonFrame" id="likeButton">
+                    <img class="LikeButton" id="buttonImage" src="@(Model.Liked() ? "../images/filled-heart.jpg" : "../images/unfilled-heart.png")" />
+                </button>
+            </form>
+            <div class="MovieReleaseDateHeader">Release Year</div>
+            <div class="MovieReleaseDate">@Model.Movie!.ReleaseDate.Date.Year</div>
+            <div class="MovieProductionCountriesHeader">Production Countries</div>
+            <div class="MovieProductionCountries">@string.Join(", ", Model.Movie!.ProductionCountries.Select(item => item.Name))</div>
+            <div class="MovieGenresHeader">Genres</div>
+            <div class="MovieGenres">@string.Join(", ", Model.Movie!.Genres.Select(item => item.Name))</div>
+            <div class="MovieTaglineHeader">Tagline</div>
+            <div class="MovieTagline">@Model.Movie!.Tagline</div>
+            <div class="MovieBudgetHeader">Budget</div>
+            <div class="MovieBudget">@Model.Movie!.Budget USD</div>
+            <div class="MovieRevenueHeader">Revenue</div>
+            <div class="MovieRevenue">@Model.Movie!.Revenue USD</div>
+            <div class="MovieRatingHeader">MPAA Rating</div>
+            <div class="MovieRating">@Model.Movie!.Rated</div>
+            <div class="MovieRuntimeHeader">Runtime</div>
+            <div class="MovieRuntime">@Model.Movie!.HoursMinutesRuntime()</div>
+            <div class="MovieIMDbRatingHeader">IMDb</div>
+            <div class="MovieIMDbRating">@(Model.Movie!.IMDbRating)/10</div>
+            <div class="MovieRottenTomatoesRatingHeader">Rotten Tomatoes</div>
+            <div class="MovieRottenTomatoesRating">@(Model.Movie!.RottenTomatoesRating)%</div>
+            <div class="MovieMetacriticRatingHeader">Metascore</div>
+            <div class="MovieMetacriticRating">@(Model.Movie!.MetacriticRating)/100</div>
+            <div class="MovieDirectorHeader">Director</div>
+            <div class="MovieDirector">
+                @((Model.Movie!.Crew.FirstOrDefault(item => item.Department == "Directing") is not null) ? 
+                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Directing").Select(item => item.Name)!)
+                    : "-")
+            </div>
+
+            <div class="MoviePlotWritersHeader">Plot</div>
+            <div class="MoviePlotWriters">
+                @((Model.Movie!.Crew.FirstOrDefault(item => item.Department == "Writing") is not null) ?
+                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Writing").Select(item => item.Name)!)
+                    : "-")
+            </div>
+            
+            <div class="MovieProducerHeader">Producer</div>
+            <div class="MovieProducer">
+                @((Model.Movie!.Crew.FirstOrDefault(item => item.Department == "Production") is not null) ?
+                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Production").Select(item => item.Name)!)
+                    : "-")
+            </div>
+            
+            <div class="MovieOperatorHeader">Operator</div>
+            <div class="MovieOperator">
+                @((Model.Movie!.Crew.FirstOrDefault(item => item.Department == "Camera") is not null) ?
+                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Camera").Select(item => item.Name)!)
+                    : "-")
+            </div>
+            
+            <div class="MovieComposerHeader">Composer</div>
+            <div class="MovieComposer">
+                @((Model.Movie!.Crew.FirstOrDefault(item => item.Department == "Sound") is not null) ?
+                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Sound").Select(item => item.Name)!)
+                    : "-")
+            </div>
+            
+            <div class="MovieEditorHeader">Editor</div>
+            <div class="MovieEditor">
+                @((Model.Movie!.Crew.FirstOrDefault(item => item.Department == "Editing") is not null) ?
+                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Editing").Select(item => item.Name)!)
+                    : "-")
+            </div>
+            
+
+            <div class="Cast">In Leading Roles</div>
+            @foreach (var item in Model.Movie!.Cast.Take(5))
+            {
+                <div class="CastItem">@item!.Name</div>
+            }
+
+            @if (Model.Movie!.Videos is not null)
+            {
+                <div class="VideosHeader">Trailers</div>
+                <ul>
+                    @foreach (var item in Model.Movie!.Videos)
+                    {
+                        <li class="VideoItemFrame">
+                            <iframe class="VideoItem" src=@item.YouTubeURL></iframe>
+                        </li>
+                    }
+                </ul>
+            }
+
+            <div class="DescriptionHeader">Description</div>
+            <div class="MovieDescription">@(Model.Movie?.Description)</div>
+        </div>
+    }
+    else
+    {
+        <div class="ErrorMessage">This Page Does Not Exist :(</div>
+    }
+</body>
+</html>

@@ -1,0 +1,11 @@
+C:\Users\ac1dl\source\repos\fgk\fgk.Core\bin\Debug\net8.0\fgk.Core.deps.json
+C:\Users\ac1dl\source\repos\fgk\fgk.Core\bin\Debug\net8.0\fgk.Core.dll
+C:\Users\ac1dl\source\repos\fgk\fgk.Core\bin\Debug\net8.0\fgk.Core.pdb
+C:\Users\ac1dl\source\repos\fgk\fgk.Core\obj\Debug\net8.0\fgk.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ac1dl\source\repos\fgk\fgk.Core\obj\Debug\net8.0\fgk.Core.AssemblyInfoInputs.cache
+C:\Users\ac1dl\source\repos\fgk\fgk.Core\obj\Debug\net8.0\fgk.Core.AssemblyInfo.cs
+C:\Users\ac1dl\source\repos\fgk\fgk.Core\obj\Debug\net8.0\fgk.Core.csproj.CoreCompileInputs.cache
+C:\Users\ac1dl\source\repos\fgk\fgk.Core\obj\Debug\net8.0\fgk.Core.dll
+C:\Users\ac1dl\source\repos\fgk\fgk.Core\obj\Debug\net8.0\refint\fgk.Core.dll
+C:\Users\ac1dl\source\repos\fgk\fgk.Core\obj\Debug\net8.0\fgk.Core.pdb
+C:\Users\ac1dl\source\repos\fgk\fgk.Core\obj\Debug\net8.0\ref\fgk.Core.dll

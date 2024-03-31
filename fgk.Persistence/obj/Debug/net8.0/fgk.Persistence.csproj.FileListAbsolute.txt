@@ -1,0 +1,17 @@
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\obj\Debug\net8.0\fgk.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\obj\Debug\net8.0\fgk.Persistence.AssemblyInfoInputs.cache
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\obj\Debug\net8.0\fgk.Persistence.AssemblyInfo.cs
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\obj\Debug\net8.0\fgk.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\bin\Debug\net8.0\fgk.Persistence.deps.json
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\bin\Debug\net8.0\fgk.Persistence.runtimeconfig.json
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\bin\Debug\net8.0\fgk.Persistence.dll
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\bin\Debug\net8.0\fgk.Persistence.pdb
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\bin\Debug\net8.0\fgk.Core.dll
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\bin\Debug\net8.0\fgk.Core.pdb
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\obj\Debug\net8.0\fgk.Persistence.csproj.AssemblyReference.cache
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\obj\Debug\net8.0\fgk.Pers.9E11FE76.Up2Date
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\obj\Debug\net8.0\fgk.Persistence.dll
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\obj\Debug\net8.0\refint\fgk.Persistence.dll
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\obj\Debug\net8.0\fgk.Persistence.pdb
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\obj\Debug\net8.0\fgk.Persistence.genruntimeconfig.cache
+C:\Users\ac1dl\source\repos\fgk\fgk.Persistence\obj\Debug\net8.0\ref\fgk.Persistence.dll
