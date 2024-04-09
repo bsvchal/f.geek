@@ -9,3 +9,4 @@ C:\Users\ac1dl\source\repos\fgk\fgk.Core\obj\Debug\net8.0\fgk.Core.dll
 C:\Users\ac1dl\source\repos\fgk\fgk.Core\obj\Debug\net8.0\refint\fgk.Core.dll
 C:\Users\ac1dl\source\repos\fgk\fgk.Core\obj\Debug\net8.0\fgk.Core.pdb
 C:\Users\ac1dl\source\repos\fgk\fgk.Core\obj\Debug\net8.0\ref\fgk.Core.dll
+C:\Users\ac1dl\source\repos\fgk\fgk.Core\obj\Debug\net8.0\fgk.Core.sourcelink.json

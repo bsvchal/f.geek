@@ -7,5 +7,6 @@ namespace fgk.Core.Abstractions
         Task<List<Movie>> GetAsync();
         Task<Movie?> GetByTitleAsync(string title);
         Task<Movie?> LikeMovieAsync(Movie movie);
+        Task<Movie?> UnlikeMovieAsync(Movie movie);
     }
 }

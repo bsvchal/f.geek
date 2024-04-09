@@ -81,7 +81,31 @@ namespace fgk.Application.Services
             var like = new MovieLike(id, DateTime.UtcNow, movie.Id, account);
             account.Like(like);
 
-            await _accountsRepository.UpdateAccountAndLikesAsync(account, like);
+            await _accountsRepository.AddLikeAsync(account, like);
+
+            return await _accountsRepository.GetByIdAsync(account.Id);
+        }
+
+        public async Task<Account?> UnlikeMovieAsync(Account account, Movie movie)
+        {
+            var id = BitConverter.ToInt32(SHA256.HashData(
+                Encoding.UTF8.GetBytes(
+                    new StringBuilder()
+                        .Append(account.Username)
+                        .Append(movie.Title)
+                        .ToString())));
+
+            var like = account.Likes?
+                .FirstOrDefault(lk => lk.TargetId == movie.Id);
+
+            if (like is null)
+            {
+                Console.WriteLine("Something Went Wrong");
+                return account;
+            }
+
+            account.Unlike(like);
+            await _accountsRepository.RemoveLikeAsync(account, like);
 
             return await _accountsRepository.GetByIdAsync(account.Id);
         }

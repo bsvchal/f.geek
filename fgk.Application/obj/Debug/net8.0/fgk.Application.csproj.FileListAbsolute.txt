@@ -15,3 +15,4 @@ C:\Users\ac1dl\source\repos\fgk\fgk.Application\bin\Debug\net8.0\fgk.Core.pdb
 C:\Users\ac1dl\source\repos\fgk\fgk.Application\bin\Debug\net8.0\fgk.Persistence.pdb
 C:\Users\ac1dl\source\repos\fgk\fgk.Application\obj\Debug\net8.0\fgk.Application.csproj.AssemblyReference.cache
 C:\Users\ac1dl\source\repos\fgk\fgk.Application\obj\Debug\net8.0\fgk.Appl.4BE6ACB4.Up2Date
+C:\Users\ac1dl\source\repos\fgk\fgk.Application\obj\Debug\net8.0\fgk.Application.sourcelink.json

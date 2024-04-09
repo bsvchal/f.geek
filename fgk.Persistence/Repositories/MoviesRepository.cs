@@ -96,5 +96,18 @@ namespace fgk.Persistence.Repositories
             await dbContext.SaveChangesAsync();
             return movie;
         }
+
+        public async Task<Movie?> UnlikeMovieAsync(Movie movie)
+        {
+            var amount = movie.LikesAmount - 1;
+            
+            await dbContext.Movies
+                .Where(mv => mv.Id == movie.Id)
+                .ExecuteUpdateAsync(mv => mv
+                    .SetProperty(mv => mv.LikesAmount, amount));
+
+            await dbContext.SaveChangesAsync();
+            return movie;
+        }
     }
 }

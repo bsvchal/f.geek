@@ -17,3 +17,4 @@ C:\Users\ac1dl\source\repos\fgk\fgk.Infrastructure\obj\Debug\net8.0\fgk.Infrastr
 C:\Users\ac1dl\source\repos\fgk\fgk.Infrastructure\obj\Debug\net8.0\refint\fgk.Infrastructure.dll
 C:\Users\ac1dl\source\repos\fgk\fgk.Infrastructure\obj\Debug\net8.0\fgk.Infrastructure.pdb
 C:\Users\ac1dl\source\repos\fgk\fgk.Infrastructure\obj\Debug\net8.0\ref\fgk.Infrastructure.dll
+C:\Users\ac1dl\source\repos\fgk\fgk.Infrastructure\obj\Debug\net8.0\fgk.Infrastructure.sourcelink.json

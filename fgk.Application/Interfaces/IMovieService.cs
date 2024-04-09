@@ -7,5 +7,6 @@ namespace fgk.Application.Interfaces
         Task<Movie?> GetMovieByTitleQuery(string titleQuery);
         Task<List<Movie>> GetMoviesByTitle(string title);
         Task<Movie?> LikeMovieAsync(Movie movie);
+        Task<Movie?> UnikeMovieAsync(Movie movie);
     }
 }

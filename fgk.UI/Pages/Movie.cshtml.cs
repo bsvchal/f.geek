@@ -1,5 +1,4 @@
 using fgk.Application.Interfaces;
-using fgk.Application.Services;
 using fgk.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -67,23 +66,52 @@ namespace fgk.UI.Pages
             {
                 return Page();
             }
-            Like();
+
+            if (Liked())
+            {
+                UnlikeMovie();
+            }
+            else
+            {
+                LikeMovie();
+            }
 
             return Page();
         }
 
-        public void Like()
+        public bool LikeMovie()
         {
-            if (Movie is not null &&
+            /*if (Movie is not null &&
                 Account is not null)
             {
                 Account = _accountService.LikeMovieAsync(Account, Movie).Result;
                 Movie = _movieService.LikeMovieAsync(Movie).Result;
-            }
+
+                return true;
+            }*/
+            Console.WriteLine("like");
+
+            return false;
+        }
+
+        public bool UnlikeMovie()
+        {
+            /*if (Movie is not null &&
+                Account is not null)
+            {
+                Account = _accountService.UnlikeMovieAsync(Account, Movie).Result;
+                Movie = _movieService.UnikeMovieAsync(Movie).Result;
+
+                return true;
+            }*/
+            Console.WriteLine("unlike");
+
+            return false;
         }
 
         public bool Liked()
         {
+            Console.WriteLine("asked");
             if (Movie is not null &&
                 Account is not null)
             {

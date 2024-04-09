@@ -79,7 +79,7 @@ namespace fgk.Persistence.Repositories
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task UpdateAccountAndLikesAsync(Account account, MovieLike newLike)
+        public async Task AddLikeAsync(Account account, MovieLike newLike)
         {
             await dbContext.MovieLikes.AddAsync(new()
             {
@@ -89,8 +89,20 @@ namespace fgk.Persistence.Repositories
                 AccountId = account.Id,
             });
 
-
             await dbContext.SaveChangesAsync(); 
+        }
+
+        public async Task RemoveLikeAsync(Account account, MovieLike like)
+        {
+            dbContext.MovieLikes.Remove(new()
+            {
+                Id = like.Id,
+                LikedDateTime = like.LikedDateTime,
+                TargetId = like.TargetId,
+                AccountId = account.Id,
+            });
+
+            await dbContext.SaveChangesAsync();
         }
     }
 }

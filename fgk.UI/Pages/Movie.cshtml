@@ -1,6 +1,26 @@
 ﻿@page
 @model fgk.UI.Pages.MovieModel
 @{
+    var filled = "../images/filled-heart.jpg?";
+    var unfilled = "../images/unfilled-heart.png?";
+
+    var src = Model.Liked() ? filled : unfilled;
+}
+
+@functions {
+    public async Task OnClikedLikeButton()
+    {
+        if (Model.Liked())
+        {
+            //src = unfilled + DateTime.Now.TimeOfDay.ToString();
+            Model.UnlikeMovie();
+        }
+        else
+        {
+            //src = filled + DateTime.Now.TimeOfDay.ToString();
+            Model.LikeMovie();
+        }
+    }
 }
 
 <!DOCTYPE html>
@@ -13,7 +33,7 @@
 
 <body>
     <div class="Header">
-        <div class="FGeek">f.geek</div>
+        <div class="FGeek" id="q">f.geek</div>
         @if (Model.Account is null)
         {
             <div class="LogIn">
@@ -53,11 +73,9 @@
         <div class="MainContent">
             <img class="MoviePoster" src=@Model.Movie!.PosterURL />
             <div class="MovieTitle">@Model.Movie!.Title</div>
-            <form class="LikeForm" method="post">
-                <button class="LikeButtonFrame" id="likeButton">
-                    <img class="LikeButton" id="buttonImage" src="@(Model.Liked() ? "../images/filled-heart.jpg" : "../images/unfilled-heart.png")" />
-                </button>
-            </form>
+            <button class="LikeButtonFrame" id="likeButton" Onclick=@OnClikedLikeButton() >
+                <img class="LikeButton" id="buttonImage" src=@src />
+            </button>
             <div class="MovieReleaseDateHeader">Release Year</div>
             <div class="MovieReleaseDate">@Model.Movie!.ReleaseDate.Date.Year</div>
             <div class="MovieProductionCountriesHeader">Production Countries</div>
@@ -75,7 +93,7 @@
             <div class="MovieRuntimeHeader">Runtime</div>
             <div class="MovieRuntime">@Model.Movie!.HoursMinutesRuntime()</div>
             <div class="MovieIMDbRatingHeader">IMDb</div>
-            <div class="MovieIMDbRating">@(Model.Movie!.IMDbRating)/10</div>
+            <div class="MovieIMDbRating">@(Model.Movie!.IMDbRating / 10)/10</div>
             <div class="MovieRottenTomatoesRatingHeader">Rotten Tomatoes</div>
             <div class="MovieRottenTomatoesRating">@(Model.Movie!.RottenTomatoesRating)%</div>
             <div class="MovieMetacriticRatingHeader">Metascore</div>
@@ -150,5 +168,6 @@
     {
         <div class="ErrorMessage">This Page Does Not Exist :(</div>
     }
+
 </body>
 </html>

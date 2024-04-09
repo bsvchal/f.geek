@@ -29,5 +29,10 @@ namespace fgk.Application.Services
         {
             return await _moviesRepository.LikeMovieAsync(movie);
         }
+
+        public async Task<Movie?> UnikeMovieAsync(Movie movie)
+        {
+            return await _moviesRepository.UnlikeMovieAsync(movie);
+        }
     }
 }

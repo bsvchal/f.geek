@@ -9,6 +9,7 @@ namespace fgk.Core.Abstractions
         Task<Account?> GetByEmailAsync(string email);
         Task<Account?> GetByIdAsync(int id);
         Task<bool> ContainsThisEmailOrUsername(string email, string username);
-        Task UpdateAccountAndLikesAsync(Account account, MovieLike newLike);
+        Task AddLikeAsync(Account account, MovieLike newLike);
+        Task RemoveLikeAsync(Account account, MovieLike like);
     }
 }
