@@ -41,8 +41,6 @@ namespace fgk.Persistence.Repositories
                 .Include(item => item.Videos)
                 .FirstOrDefaultAsync();
 
-            Console.WriteLine(item is null);
-
             return (item is not null) ? _mapper.Map<Movie>(item) : null;
         }
 
