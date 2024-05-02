@@ -1,5 +1,6 @@
 ﻿using fgk.Application.Interfaces;
 using fgk.Core.Abstractions;
+using fgk.Core.Contracts;
 using fgk.Core.Models;
 
 namespace fgk.Application.Services
@@ -33,6 +34,14 @@ namespace fgk.Application.Services
         public async Task<Movie?> UnikeMovieAsync(Movie movie)
         {
             return await _moviesRepository.UnlikeMovieAsync(movie);
+        }
+
+        public async Task<IEnumerable<MovieDisplay>> GetAllLikedMoviesAsync(
+            IEnumerable<MovieLike> likes, int maximumAmount)
+        {
+            return (await _moviesRepository
+                .GetMoviesAsync(likes.OrderBy(ml => ml.LikedDateTime).Reverse().Select(ml => ml.TargetId)))
+                .Take(maximumAmount);
         }
     }
 }

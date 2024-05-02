@@ -5,6 +5,7 @@ using fgk.Core.Models;
 using fgk.Infrastructure;
 using fgk.Infrastructure.Options;
 using fgk.Persistence;
+using fgk.Persistence.MapperProfiles;
 using fgk.Persistence.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -12,80 +13,86 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace fgk.UI
+namespace fgk.UI;
+
+public class Program
 {
-    public class Program
+    private static void Main(string[] args)
     {
-        private static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
+        var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-            builder.Services.AddRazorPages();
+        builder.Services.AddRazorPages();
 
-            builder.Services.AddDbContext<MovieDbContext>
-            (
-                options =>
-                {
-                    options.UseNpgsql(builder.Configuration.GetConnectionString(nameof(MovieDbContext)));
-                }
-            );
-
-            builder.Services.AddDbContext<AccountDbContext>
-            (
-                options =>
-                {
-                    options.UseNpgsql(builder.Configuration.GetConnectionString(nameof(AccountDbContext)));
-                }
-            );
-
-            builder.Services.AddSingleton<JwtOptions>();
-            builder.Services.AddSingleton<IJwtTokenService, JwtTokenService>();
-
-            builder.Services.AddScoped<IMoviesRepository, MoviesRepository>();
-            builder.Services.AddScoped<IAccountsRepository, AccountsRepository>();
-
-            builder.Services.AddScoped<IPasswordHasher<Account>, PasswordHasher<Account>>();
-            
-            builder.Services.AddScoped<IAccountService, AccountService>();
-            builder.Services.AddScoped<IMovieService, MovieService>();
-
-            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
-                {
-                    options.TokenValidationParameters = new()
-                    {
-                        ValidateIssuer = false,
-                        ValidateAudience = false,
-                        ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(
-                            Encoding.UTF8.GetBytes(builder.Configuration["JwtOptions:Key"]!))
-                    };
-                });
-            
-            builder.Services.AddAuthorization();
-
-            var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
+        builder.Services.AddDbContext<MovieDbContext>
+        (
+            options =>
             {
-                app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                options.UseNpgsql(builder.Configuration.GetConnectionString(nameof(MovieDbContext)));
             }
+        );
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+        builder.Services.AddDbContext<AccountDbContext>
+        (
+            options =>
+            {
+                options.UseNpgsql(builder.Configuration.GetConnectionString(nameof(AccountDbContext)));
+            }
+        );
 
-            app.UseRouting();
+        builder.Services.AddAutoMapper(
+            typeof(MovieFromEntityMappingProfile),
+            typeof(MovieDetailsFromEntityMappingProfile),
+            typeof(CastFromEntityMappingProfile),
+            typeof(CrewFromEntityMappingProfile),
+            typeof(GenreFromEntityMappingProfile), 
+            typeof(KeywordFromEntityMappingProfile),
+            typeof(ProductionCountryFromEntityMappingProfile),
+            typeof(VideoFromEntityMappingProfile));
 
-            app.UseAuthorization();
+        builder.Services.AddSingleton<JwtOptions>();
+        builder.Services.AddSingleton<IJwtTokenService, JwtTokenService>();
 
-            app.MapRazorPages();
+        builder.Services.AddScoped<IMoviesRepository, MoviesRepository>();
+        builder.Services.AddScoped<IAccountsRepository, AccountsRepository>();
 
-            app.Run();
+        builder.Services.AddScoped<IPasswordHasher<Account>, PasswordHasher<Account>>();
+        
+        builder.Services.AddScoped<IAccountService, AccountService>();
+        builder.Services.AddScoped<IMovieService, MovieService>();
+
+        builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
+            {
+                options.TokenValidationParameters = new()
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(builder.Configuration["JwtOptions:Key"]!))
+                };
+            });
+        
+        builder.Services.AddAuthorization();
+
+        var app = builder.Build();
+
+        if (!app.Environment.IsDevelopment())
+        {
+            app.UseExceptionHandler("/Error");
+            app.UseHsts();
         }
+
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
+
+        app.UseRouting();
+
+        app.UseAuthorization();
+
+        app.MapRazorPages();
+
+        app.Run();
     }
 }

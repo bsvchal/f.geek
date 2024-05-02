@@ -39,13 +39,7 @@ namespace fgk.UI.Pages
             if (q is not null)
             {
                 SearchingResult = (await _movieService.GetMoviesByTitle(q))
-                    .OrderBy
-                    (
-                        item =>
-                        {
-                            return item.LikesAmount;
-                        }
-                    )
+                    .OrderBy(item => item.LikesAmount)
                     .Reverse()
                     .ToList();
             }

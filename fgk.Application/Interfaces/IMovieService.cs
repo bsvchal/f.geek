@@ -1,4 +1,5 @@
-﻿using fgk.Core.Models;
+﻿using fgk.Core.Contracts;
+using fgk.Core.Models;
 
 namespace fgk.Application.Interfaces
 {
@@ -8,5 +9,7 @@ namespace fgk.Application.Interfaces
         Task<List<Movie>> GetMoviesByTitle(string title);
         Task<Movie?> LikeMovieAsync(Movie movie);
         Task<Movie?> UnikeMovieAsync(Movie movie);
+        Task<IEnumerable<MovieDisplay>> GetAllLikedMoviesAsync(
+            IEnumerable<MovieLike> likes, int maximumAmount);
     }
 }

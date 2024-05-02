@@ -1,4 +1,6 @@
-﻿using fgk.Core.Abstractions;
+﻿using AutoMapper;
+using fgk.Core.Abstractions;
+using fgk.Core.Contracts;
 using fgk.Core.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,50 +8,30 @@ namespace fgk.Persistence.Repositories
 {
     public class MoviesRepository : IMoviesRepository
     {
-        private readonly MovieDbContext dbContext;
+        private readonly MovieDbContext _dbContext;
+        private readonly IMapper _mapper;
 
-        public MoviesRepository(MovieDbContext dbContext)
+        public MoviesRepository(
+            MovieDbContext dbContext, IMapper mapper)
         {
-            this.dbContext = dbContext;
+            _dbContext = dbContext;
+            _mapper = mapper;
         }
 
         public async Task<List<Movie>> GetAsync()
         {
-            var movieEntities = await dbContext.Movies
+            var movieEntities = await _dbContext.Movies
                 .AsNoTracking()
                 .ToListAsync();
 
             return movieEntities
-                .Select(item =>
-                new Movie(
-                        item.Id,
-                        item.Title,
-                        item.ReleaseDate,
-                        item.Runtime,
-                        item.ShortDescription,
-                        item.Description,
-                        item.Tagline,
-                        item.Budget,
-                        item.Revenue,
-                        item.Rated,
-                        item.PosterURL,
-                        item.LikesAmount,
-                        item.Genres.Select(item => new Genre(item.Id, item.Name, null)),
-                        item.Keywords.Select(item => new Keyword(item.Id, item.Word, null)),
-                        item.ProductionCountries.Select(item => new ProductionCountry(item.Id, item.Name, null)),
-                        item.Cast.Select(item => new Cast(item.Id, item.Name, item.Character, null, item.Order)),
-                        item.Crew.Select(item => new Crew(item.Id, item.Name, item.Department, item.Job, null)),
-                        item.Videos?.Select(item => new Video(item.Id, item.Title, item.YouTubeURL, null)),
-                        item.IMDbRating,
-                        item.RottenTomatoesRating,
-                        item.MetacriticRating
-                    )
-                )
+                .Select(_mapper.Map<Movie>)
                 .ToList();
         }
         public async Task<Movie?> GetByTitleAsync(string title)
         {
-            var item = await dbContext.Movies.AsNoTracking()
+            var item = await _dbContext.Movies
+                .AsNoTracking()
                 .Where(item => item.Title.ToLower() == title)
                 .Include(item => item.Genres)
                 .Include(item => item.Keywords)
@@ -59,41 +41,33 @@ namespace fgk.Persistence.Repositories
                 .Include(item => item.Videos)
                 .FirstOrDefaultAsync();
 
-            return (item is not null) ? new Movie(
-                        item.Id,
-                        item.Title,
-                        item.ReleaseDate,
-                        item.Runtime,
-                        item.ShortDescription,
-                        item.Description,
-                        item.Tagline,
-                        item.Budget,
-                        item.Revenue,
-                        item.Rated,
-                        item.PosterURL,
-                        item.LikesAmount,
-                        item.Genres.Select(item => new Genre(item.Id, item.Name, null)),
-                        item.Keywords.Select(item => new Keyword(item.Id, item.Word, null)),
-                        item.ProductionCountries.Select(item => new ProductionCountry(item.Id, item.Name, null)),
-                        item.Cast.Select(item => new Cast(item.Id, item.Name, item.Character, null, item.Order)),
-                        item.Crew.Select(item => new Crew(item.Id, item.Name, item.Department, item.Job, null)),
-                        item.Videos?.Select(item => new Video(item.Id, item.Title, item.YouTubeURL, null)),
-                        item.IMDbRating,
-                        item.RottenTomatoesRating,
-                        item.MetacriticRating
-                    ) : null;
+            Console.WriteLine(item is null);
+
+            return (item is not null) ? _mapper.Map<Movie>(item) : null;
+        }
+
+        public async Task<IEnumerable<MovieDisplay>> GetMoviesAsync(
+            IEnumerable<int> movieIds)
+        {
+            var movieEntities = await _dbContext.Movies
+                .AsNoTracking()
+                .Where(movie => movieIds.Contains(movie.Id))
+                .ToListAsync();
+
+            return movieEntities
+                .Select(_mapper.Map<MovieDisplay>);
         }
 
         public async Task<Movie?> LikeMovieAsync(Movie movie)
         {
             var amount = movie.LikesAmount + 1;
 
-            await dbContext.Movies
+            await _dbContext.Movies
                 .Where(mv => mv.Id == movie.Id)
                 .ExecuteUpdateAsync(mv => mv
                     .SetProperty(mv => mv.LikesAmount, amount));
 
-            await dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync();
             return movie;
         }
 
@@ -101,12 +75,12 @@ namespace fgk.Persistence.Repositories
         {
             var amount = movie.LikesAmount - 1;
             
-            await dbContext.Movies
+            await _dbContext.Movies
                 .Where(mv => mv.Id == movie.Id)
                 .ExecuteUpdateAsync(mv => mv
                     .SetProperty(mv => mv.LikesAmount, amount));
 
-            await dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync();
             return movie;
         }
     }

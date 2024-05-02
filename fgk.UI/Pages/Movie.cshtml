@@ -7,22 +7,6 @@
     var src = Model.Liked() ? filled : unfilled;
 }
 
-@functions {
-    public async Task OnClikedLikeButton()
-    {
-        if (Model.Liked())
-        {
-            //src = unfilled + DateTime.Now.TimeOfDay.ToString();
-            Model.UnlikeMovie();
-        }
-        else
-        {
-            //src = filled + DateTime.Now.TimeOfDay.ToString();
-            Model.LikeMovie();
-        }
-    }
-}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +27,7 @@
         else
         {
             <div class="HeaderProfile">
-                <a class="HeaderProfileRef" href="/profile" target="_self">@Model.Account?.Username</a>
+                <a class="HeaderProfileRef" href="/profile?name=@Model.Account.Username" target="_self">@Model.Account?.Username</a>
             </div>
         }
     </div>
@@ -73,9 +57,11 @@
         <div class="MainContent">
             <img class="MoviePoster" src=@Model.Movie!.PosterURL />
             <div class="MovieTitle">@Model.Movie!.Title</div>
-            <button class="LikeButtonFrame" id="likeButton" Onclick=@OnClikedLikeButton() >
-                <img class="LikeButton" id="buttonImage" src=@src />
-            </button>
+            <form method="post">
+                <button class="LikeButtonFrame" id="likeButton" >
+                    <img class="LikeButton" id="buttonImage" src=@src />
+                </button>
+            </form>
             <div class="MovieReleaseDateHeader">Release Year</div>
             <div class="MovieReleaseDate">@Model.Movie!.ReleaseDate.Date.Year</div>
             <div class="MovieProductionCountriesHeader">Production Countries</div>

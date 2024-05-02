@@ -1,13 +1,27 @@
 ﻿using fgk.Core.Abstractions;
 
-namespace fgk.Core.Models
+namespace fgk.Core.Models;
+
+public class MovieLike
 {
-    public class MovieLike
-        (int id, DateTime likeDateTime, int targetId, Account? account)
+    public MovieLike()
     {
-        public int Id { get; } = id;
-        public DateTime LikedDateTime { get; } = likeDateTime;
-        public int TargetId { get; } = targetId;
-        public Account? LikedBy { get; } = account;
+        Id = 0;
+        LikedDateTime = DateTime.MinValue;
+        TargetId = 0;
+        LikedBy = null;
     }
+
+    public MovieLike(int id, DateTime liked, int targetId, Account? likedBy)
+    {
+        Id = id;
+        LikedDateTime = liked;
+        TargetId = targetId;
+        LikedBy = likedBy;
+    }
+
+    public int Id { get; private set; } 
+    public DateTime LikedDateTime { get; private set; }
+    public int TargetId { get; private set; } 
+    public Account? LikedBy { get; private set; } 
 }

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ozjegy3AbKSaQgjoifgHGJA3YSFpS1qik3Ue7BIw1hwcHvrA2NC291ZG9dQhlZVw8A/yro2r/8lst1+TK2LMjQ==",
+  "dgSpecHash": "x5jN/JhV/PJUskcYOirz45ZQIli9pMeBUdUZ3IrB0GnHCo6OyXeum3v4YhYEZAOGyCyi81DtYJuAWWaYbVp47w==",
   "success": true,
   "projectFilePath": "C:\\Users\\ac1dl\\source\\repos\\fgk\\fgk.Persistence\\fgk.Persistence.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ac1dl\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\ac1dl\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ac1dl\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\ac1dl\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",

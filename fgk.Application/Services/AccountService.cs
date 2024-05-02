@@ -109,5 +109,11 @@ namespace fgk.Application.Services
 
             return await _accountsRepository.GetByIdAsync(account.Id);
         }
+
+        public async Task<Account?> GetByUsernameAsync(string username)
+        {
+            return await _accountsRepository
+                .GetByUsernameAsync(username);
+        }
     }
 }

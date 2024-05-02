@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Ds+xgaDdirAbKn10C0vUmEPAItj+Atc2xrAmyGSpY25yQS1ME8eE4CzU0AZfrmVETFfBmsl5cECddG/788f+QQ==",
+  "dgSpecHash": "oo34etVQAzevIkkbVPPHMA/r/FuC/fvM4u64jK8nXa3xir0K/8LC/L18cS0/SPJDZc95pUXv2Ve7zqyyKp6NcA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ac1dl\\source\\repos\\fgk\\fgk.Application\\fgk.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ac1dl\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\ac1dl\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.3\\microsoft.aspnetcore.cryptography.internal.8.0.3.nupkg.sha512",
     "C:\\Users\\ac1dl\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.3\\microsoft.aspnetcore.cryptography.keyderivation.8.0.3.nupkg.sha512",
     "C:\\Users\\ac1dl\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.3\\microsoft.entityframeworkcore.8.0.3.nupkg.sha512",

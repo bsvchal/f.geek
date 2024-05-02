@@ -25,10 +25,11 @@ namespace fgk.Persistence.Repositories
                 .FirstOrDefaultAsync();
 
             return accountEntity is not null ?
-                new Account(id, accountEntity.Email, accountEntity.Username, accountEntity.Password,
-                accountEntity.Likes
-                    .AsEnumerable()
-                    .Select(lk => new MovieLike(lk.Id, lk.LikedDateTime, lk.TargetId, null)))
+                new Account(
+                    accountEntity.Id, accountEntity.Email, accountEntity.Username,
+                    accountEntity.Password, accountEntity.Likes
+                        .AsEnumerable()
+                        .Select(lk => new MovieLike(lk.Id, lk.LikedDateTime, lk.TargetId, null)))
                 : null;
         }
 
@@ -49,10 +50,11 @@ namespace fgk.Persistence.Repositories
                 .FirstOrDefaultAsync();
 
             return accountEntity is not null ?
-                new Account(accountEntity.Id, accountEntity.Email, accountEntity.Username, accountEntity.Password,
-                accountEntity.Likes
-                    .AsEnumerable()
-                    .Select(lk => new MovieLike(lk.Id, lk.LikedDateTime, lk.TargetId, null)))
+                new Account(
+                    accountEntity.Id, accountEntity.Email, accountEntity.Username,
+                    accountEntity.Password, accountEntity.Likes
+                        .AsEnumerable()
+                        .Select(lk => new MovieLike(lk.Id, lk.LikedDateTime, lk.TargetId, null)))
                 : null;
         }
          
@@ -60,9 +62,9 @@ namespace fgk.Persistence.Repositories
         {
             return await dbContext.Accounts
                 .AsNoTracking()
-                .FirstOrDefaultAsync(ac => ac.Email == email ||
-                                           ac.Username == username)
-                is not null;
+                .FirstOrDefaultAsync(
+                    ac => ac.Email == email ||
+                    ac.Username == username) is not null;
         }
 
         public async Task AddAsync(Account account)
@@ -103,6 +105,23 @@ namespace fgk.Persistence.Repositories
             });
 
             await dbContext.SaveChangesAsync();
+        }
+
+        public async Task<Account?> GetByUsernameAsync(string username)
+        {
+            var accountEntity = await dbContext.Accounts
+                .AsNoTracking()
+                .Where(ac => ac.Username == username)
+                .Include(ac => ac.Likes)
+                .FirstOrDefaultAsync();
+
+            return accountEntity is not null ?
+                new Account(
+                    accountEntity.Id, accountEntity.Email, accountEntity.Username,
+                    accountEntity.Password, accountEntity.Likes
+                        .AsEnumerable()
+                        .Select(lk => new MovieLike(lk.Id, lk.LikedDateTime, lk.TargetId, null)))
+                : null;
         }
     }
 }

@@ -79,39 +79,30 @@ namespace fgk.UI.Pages
             return Page();
         }
 
-        public bool LikeMovie()
+        public void LikeMovie()
         {
             /*if (Movie is not null &&
                 Account is not null)
             {
                 Account = _accountService.LikeMovieAsync(Account, Movie).Result;
                 Movie = _movieService.LikeMovieAsync(Movie).Result;
-
-                return true;
             }*/
-            Console.WriteLine("like");
-
-            return false;
+            Console.WriteLine("liked");
         }
 
-        public bool UnlikeMovie()
+        public void UnlikeMovie()
         {
             /*if (Movie is not null &&
                 Account is not null)
             {
                 Account = _accountService.UnlikeMovieAsync(Account, Movie).Result;
                 Movie = _movieService.UnikeMovieAsync(Movie).Result;
-
-                return true;
             }*/
-            Console.WriteLine("unlike");
-
-            return false;
+            Console.WriteLine("unliked");
         }
 
         public bool Liked()
         {
-            Console.WriteLine("asked");
             if (Movie is not null &&
                 Account is not null)
             {

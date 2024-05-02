@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fgk.Application", "fgk.Appl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fgk.Persistence", "fgk.Persistence\fgk.Persistence.csproj", "{95476354-AAE4-453E-9039-A2E00F29A302}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fgk.Infrastructure", "fgk.Infrastructure\fgk.Infrastructure.csproj", "{5F52995E-FA59-4C29-A39C-AA12A6F2EED0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fgk.Infrastructure", "fgk.Infrastructure\fgk.Infrastructure.csproj", "{5F52995E-FA59-4C29-A39C-AA12A6F2EED0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
