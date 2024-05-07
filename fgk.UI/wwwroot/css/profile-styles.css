@@ -1,0 +1,319 @@
+﻿body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+@font-face {
+    font-family: Coustard;
+    src: url("../Fonts/Coustard/Coustard-Regular.ttf");
+}
+
+.Header {
+    width: 100%;
+    height: 40px;
+    background: black;
+    position: fixed;
+    align-items: center;
+    z-index: 2;
+}
+
+.FGeek {
+    color: white;
+    font-size: 30px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.LogIn {
+    position: relative;
+    top: -90%;
+    left: 93%;
+}
+
+.LogInRef {
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    text-decoration: none;
+    z-index: 3;
+}
+
+.HeaderProfile {
+    position: relative;
+    top: -90%;
+    left: 93%;
+}
+
+.HeaderProfileRef {
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    text-decoration: none;
+    z-index: 3;
+}
+
+.LeftBorder {
+    width: 15%;
+    height: 100%;
+    background: black;
+    position: fixed;
+    align-items: center;
+}
+
+.MainContent {
+    background-color: white;
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    margin-top: 40px;
+    margin-left: 15%;
+    z-index: 1;
+}
+
+.Profile {
+    position: relative;
+    top: 100px;
+    left: 50%;
+    align-content: center;
+}
+
+.ProfileRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Home {
+    position: relative;
+    top: 125px;
+    left: 50%;
+    align-content: center;
+}
+
+.HomeRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Search {
+    position: relative;
+    top: 150px;
+    left: 50%;
+    align-content: center;
+}
+
+.SearchRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Likes {
+    position: relative;
+    top: 175px;
+    left: 50%;
+    align-content: center;
+}
+
+.LikesRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Movies {
+    position: relative;
+    top: 200px;
+    left: 50%;
+    align-content: center;
+}
+
+.MoviesRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.Series {
+    position: relative;
+    top: 225px;
+    left: 50%;
+    align-content: center;
+}
+
+.SeriesRef {
+    position: relative;
+    left: -50%;
+    color: white;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.AccountNotFoundMessage {
+    position: relative;
+    left: 30%;
+    top: 5%;
+    color: black;
+    font-size: 30px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+}
+
+.Username {
+    position: relative;
+    left: 200px;
+    top: 60px;
+    color: black;
+    font-size: 35px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+}
+
+.SignOut {
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    color: white;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+    width: 150px;
+    height: 50px;
+    position: relative;
+    top: 10px;
+    left: 1190px;
+    background-color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.MovieLikesLabel {
+    position: relative;
+    left: 150px;
+    top: 50px;
+    color: black;
+    font-size: 20px;
+    font-family: Coustard;
+    font-weight: 400;
+    letter-spacing: 0.71px;
+    word-wrap: break-word;
+}
+
+.MovieWrapper {
+    position: relative;
+    top: 75px;
+    left: 75px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, auto);
+    grid-gap: 0 0;
+    padding: 30px 60px;
+    padding-right: 0;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    background-color: white;
+}
+
+.MovieWrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.MovieWrapper {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.MovieItemFrame {   
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 280px;
+    height: 350px;
+    cursor: pointer;
+    padding: 0 0;
+    background-color: white;
+}
+
+.MovieTitle {
+    font-family: Coustard;
+    text-decoration: none;
+    color: black;
+    font-size: 100%;
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+.MoviePoster {
+    position: relative;
+    width: 180px;
+    height: auto;
+    top: 30px;
+    left: 50px;
+}

@@ -1,0 +1,82 @@
+﻿@page
+@model fgk.UI.Pages.ProfileModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>f.geek Profile</title>
+        <link rel="stylesheet" href="~/css/profile-styles.css" />
+    </head>
+
+    <body>
+        <div class="Header">
+            <div class="FGeek">f.geek</div>
+            @if (Model.Account is null)
+            {
+                <div class="LogIn">
+                    <a class="LogInRef" href="/login" target="_self">Log In</a>
+                </div>
+            }
+            else
+            {
+                <div class="HeaderProfile">
+                    <a class="HeaderProfileRef" href="/profile?name=@Model.Account.Username" target="_self">@Model.Account?.Username</a>
+                </div>
+            }
+        </div>
+
+        <div class="LeftBorder">
+            <div class="Profile">
+                <a class="ProfileRef" href="/profile" target="_self">Profile</a>
+            </div>
+            <div class="Home">
+                <a class="HomeRef" href="/" target="_self">Home</a>
+            </div>
+            <div class="Search">
+                <a class="SearchRef" href="/search" target="_self">Search</a>
+            </div>
+            <div class="Likes">
+                <a class="LikesRef" href="/likes" target="_self">Likes</a>
+            </div>
+            <div class="Movies">
+                <a class="MoviesRef" href="/movies" target="_self">Movies</a>
+            </div>
+            <div class="Series">
+                <a class="SeriesRef" href="/series" target="_self">Series</a>
+            </div>
+        </div>
+
+        <div class="MainContent">
+            @if (Model.Profile is null)
+            {
+                <div class="AccountNotFoundMessage">
+                    Sorry, This Profile Is Not Found :(
+                </div>
+            }
+            else 
+            {
+                <div class="Username">@Model.Profile.Username</div>
+                @if (Model.Profile.Id == Model.Account!.Id)
+                {
+                    <form method="post">
+                        <button class="SignOut">Sign Out</button>
+                    </form>
+                }
+                <div class="MovieLikesLabel">Movies:</div>
+                
+                <div class="MovieWrapper">
+                    @foreach (var movie in Model.LikedMovies)
+                    {
+                        <div class="MovieItemFrame">
+                            <a class="MovieTitle" href="/movie?name=none" target="_self">@movie.Title</a>
+                            <img class="MoviePoster" src=@movie.PosterURL/>
+                        </div>
+                    }
+                </div>
+            }
+        </button>
+    </body>
+</html>
