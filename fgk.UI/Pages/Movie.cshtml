@@ -87,43 +87,37 @@
             <div class="MovieDirectorHeader">Director</div>
             <div class="MovieDirector">
                 @((Model.Movie!.Crew.FirstOrDefault(item => item.Department == "Directing") is not null) ? 
-                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Directing").Select(item => item.Name)!)
-                    : "-")
+                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Directing").Select(item => item.Name)!) : "-")
             </div>
 
             <div class="MoviePlotWritersHeader">Plot</div>
             <div class="MoviePlotWriters">
                 @((Model.Movie!.Crew.FirstOrDefault(item => item.Department == "Writing") is not null) ?
-                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Writing").Select(item => item.Name)!)
-                    : "-")
+                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Writing").Select(item => item.Name)!) : "-")
             </div>
             
             <div class="MovieProducerHeader">Producer</div>
             <div class="MovieProducer">
                 @((Model.Movie!.Crew.FirstOrDefault(item => item.Department == "Production") is not null) ?
-                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Production").Select(item => item.Name)!)
-                    : "-")
+                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Production").Select(item => item.Name)!) : "-")
             </div>
             
             <div class="MovieOperatorHeader">Operator</div>
             <div class="MovieOperator">
                 @((Model.Movie!.Crew.FirstOrDefault(item => item.Department == "Camera") is not null) ?
-                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Camera").Select(item => item.Name)!)
-                    : "-")
+                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Camera").Select(item => item.Name)!) : "-")
             </div>
             
             <div class="MovieComposerHeader">Composer</div>
             <div class="MovieComposer">
                 @((Model.Movie!.Crew.FirstOrDefault(item => item.Department == "Sound") is not null) ?
-                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Sound").Select(item => item.Name)!)
-                    : "-")
+                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Sound").Select(item => item.Name)!) : "-")
             </div>
             
             <div class="MovieEditorHeader">Editor</div>
             <div class="MovieEditor">
                 @((Model.Movie!.Crew.FirstOrDefault(item => item.Department == "Editing") is not null) ?
-                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Editing").Select(item => item.Name)!)
-                    : "-")
+                    string.Join(", ", Model.Movie!.Crew.Where(item => item.Department == "Editing").Select(item => item.Name)!) : "-")
             </div>
             
 

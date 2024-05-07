@@ -7,9 +7,9 @@ namespace fgk.Core.Models
     {
         private readonly List<MovieLike>? _likes = [];
 
-        public int Id { get; } = 0;
-        public string Email { get; } = string.Empty;
-        public string Username { get; } = string.Empty;
+        public int Id { get; private set; } = 0;
+        public string Email { get; private set;  } = string.Empty;
+        public string Username { get; private set; } = string.Empty;
         public string Password { get; private set; } = string.Empty;
         public IReadOnlyList<MovieLike>? Likes { get => _likes?.AsReadOnly(); }
 
@@ -37,7 +37,6 @@ namespace fgk.Core.Models
         {
             _likes?.Add(entity);
         }
-
         public void Unlike(MovieLike entity) 
         {
             _likes?.Remove(entity);

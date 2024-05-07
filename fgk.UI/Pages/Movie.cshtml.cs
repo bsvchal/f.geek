@@ -69,36 +69,32 @@ namespace fgk.UI.Pages
 
             if (Liked())
             {
-                UnlikeMovie();
+                await UnlikeMovie();
             }
             else
             {
-                LikeMovie();
+                await LikeMovie();
             }
 
             return Page();
         }
 
-        public void LikeMovie()
+        public async Task LikeMovie()
         {
-            /*if (Movie is not null &&
-                Account is not null)
+            if (Movie is not null && Account is not null)
             {
-                Account = _accountService.LikeMovieAsync(Account, Movie).Result;
-                Movie = _movieService.LikeMovieAsync(Movie).Result;
-            }*/
-            Console.WriteLine("liked");
+                Account = await _accountService.LikeMovieAsync(Account, Movie);
+                Movie = await _movieService.LikeMovieAsync(Movie);
+            }
         }
 
-        public void UnlikeMovie()
+        public async Task UnlikeMovie()
         {
-            /*if (Movie is not null &&
-                Account is not null)
+            if (Movie is not null && Account is not null)
             {
-                Account = _accountService.UnlikeMovieAsync(Account, Movie).Result;
-                Movie = _movieService.UnikeMovieAsync(Movie).Result;
-            }*/
-            Console.WriteLine("unliked");
+                Account = await _accountService.UnlikeMovieAsync(Account, Movie);
+                Movie = await _movieService.UnikeMovieAsync(Movie);
+            }
         }
 
         public bool Liked()

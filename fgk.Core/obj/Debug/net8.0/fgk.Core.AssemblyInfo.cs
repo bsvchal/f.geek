@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("fgk.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8430d71f188cc11667ee815ec5b86657b47c560e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c158616804fc7027e20fc43fc809280c34f143ee")]
 [assembly: System.Reflection.AssemblyProductAttribute("fgk.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("fgk.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
